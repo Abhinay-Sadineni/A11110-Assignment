@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.5.16)  1 JUL 2022 11:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.5.16)  1 JUL 2022 12:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1297,33 +1297,30 @@ File: ts1txr.fd 2000/12/15 v3.1
 <./figs/uni_cdf.pdf, id=23, 462.52798pt x 346.89601pt>
 File: ./figs/uni_cdf.pdf Graphic file (type pdf)
 <use ./figs/uni_cdf.pdf>
-Package pdftex.def Info: ./figs/uni_cdf.pdf  used on input line 322.
+Package pdftex.def Info: ./figs/uni_cdf.pdf  used on input line 325.
 (pdftex.def)             Requested size: 252.0pt x 189.00429pt.
-
-Underfull \vbox (badness 2856) has occurred while \output is active []
-
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
  <./figs/uni_cdf.pdf>]
-<./figs/gauss_cdf.pdf, id=88, 462.52798pt x 346.89601pt>
+<./figs/gauss_cdf.pdf, id=90, 462.52798pt x 346.89601pt>
 File: ./figs/gauss_cdf.pdf Graphic file (type pdf)
 <use ./figs/gauss_cdf.pdf>
-Package pdftex.def Info: ./figs/gauss_cdf.pdf  used on input line 416.
+Package pdftex.def Info: ./figs/gauss_cdf.pdf  used on input line 435.
 (pdftex.def)             Requested size: 252.0pt x 189.00429pt.
-<./figs/gauss_pdf.pdf, id=90, 462.52798pt x 346.89601pt>
+<./figs/gauss_pdf.pdf, id=92, 462.52798pt x 346.89601pt>
 File: ./figs/gauss_pdf.pdf Graphic file (type pdf)
 <use ./figs/gauss_pdf.pdf>
-Package pdftex.def Info: ./figs/gauss_pdf.pdf  used on input line 439.
+Package pdftex.def Info: ./figs/gauss_pdf.pdf  used on input line 458.
 (pdftex.def)             Requested size: 252.0pt x 189.00429pt.
  [2 <./figs/gauss_cdf.pdf> <./figs/gauss_pdf.pdf>]
-<./figs/vni_cdf.pdf, id=192, 462.52798pt x 346.89601pt>
+<./figs/vni_cdf.pdf, id=193, 462.52798pt x 346.89601pt>
 File: ./figs/vni_cdf.pdf Graphic file (type pdf)
 <use ./figs/vni_cdf.pdf>
-Package pdftex.def Info: ./figs/vni_cdf.pdf  used on input line 498.
+Package pdftex.def Info: ./figs/vni_cdf.pdf  used on input line 524.
 (pdftex.def)             Requested size: 252.0pt x 189.00429pt.
 
-Underfull \hbox (badness 4913) in paragraph at lines 502--505
+Underfull \hbox (badness 4913) in paragraph at lines 528--531
 []\OT1/txr/m/n/12 Find a the-o-ret-i-cal ex-pres-sion for $\OML/txmi/m/it/12 F[
 ]\OT1/txr/m/n/12 (\OML/txmi/m/it/12 x\OT1/txr/m/n/12 )$.
  []
@@ -1333,13 +1330,13 @@ Package rerunfilecheck Info: File `solutions.out' has not changed.
 (rerunfilecheck)             Checksum: 52185E15DC6BD70239C860CE9E02C002;470.
  ) 
 Here is how much of TeX's memory you used:
- 29802 strings out of 480204
- 571846 string characters out of 5895010
- 937990 words of memory out of 5000000
+ 29814 strings out of 480204
+ 572024 string characters out of 5895010
+ 955990 words of memory out of 5000000
  47110 multiletter control sequences out of 15000+600000
  533066 words of font info for 153 fonts, out of 8000000 for 9000
  39 hyphenation exceptions out of 8191
- 100i,12n,104p,420b,1417s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 100i,12n,104p,420b,1620s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/txfonts/rtcxr.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/typ
@@ -1350,10 +1347,10 @@ are/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times
 /utmri8a.pfb>
-Output written on solutions.pdf (3 pages, 105580 bytes).
+Output written on solutions.pdf (3 pages, 106608 bytes).
 PDF statistics:
- 310 PDF objects out of 1000 (max. 8388607)
- 210 compressed objects within 3 object streams
- 92 named destinations out of 1000 (max. 500000)
+ 324 PDF objects out of 1000 (max. 8388607)
+ 224 compressed objects within 3 object streams
+ 104 named destinations out of 1000 (max. 500000)
  57 words of extra memory for PDF output out of 10000 (max. 10000000)
 
