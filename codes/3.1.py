@@ -13,6 +13,7 @@ for i in range(0,40):
 	CF_n = np.size(CF_ind)
 	CF.append(CF_n/simlen) 
 
+plt.plot(x[0:49].T,CF,"o")
 plt.plot(x.T,CF)
 plt.grid()
 plt.xlabel('$x$')
