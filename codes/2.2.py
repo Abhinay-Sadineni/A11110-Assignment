@@ -11,8 +11,14 @@ for i in range(0,40):
 	CF_ind = np.nonzero(randvar < x[i]) 
 	CF_n = np.size(CF_ind)
 	CF.append(CF_n/simlen) 
+	
+	
+def Q(x):
+    return (1-mp.erf(x/mp.sqrt(2)))/2
+    
 def f(x):
-    return (1+mp.erf(x/mp.sqrt(2)))/2
+    return 1-Q(x)
+    
 cdf = np.vectorize(f)
 
 plt.plot(x.T,cdf(x))

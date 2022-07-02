@@ -314,7 +314,6 @@ Load the uni.dat file into python and plot the empirical CDF of $U$ using the sa
 \begin{align}
 F_{U}(x) = \pr{U \le x}
 \end{align}
-\\
 \solution  The following code plots Fig. \ref{fig:uni_cdf}
 \begin{lstlisting}
 $ wget https://github.com/karna-rash/A11110-Assignment/blob/master/codes/1.2.py
@@ -329,7 +328,7 @@ $ python3 1.2.py
 
 %
 \item
-Find a  theoretical expression for $F_{U}(x)$.
+Find a  theoretical expression for $F_{U}(x)$.\\
 \textbf{Solution:} 
 	Since it is uniform distribution then pdf is given by:
 	\begin{equation}
@@ -339,11 +338,20 @@ Find a  theoretical expression for $F_{U}(x)$.
 	    0 & otherwise
 		\end{cases}
 	\end{equation}
+	for $0<x<1 :$
 	\begin{align}
 		F_U(x) & = \int_{-\infty}^{x}p_U(x)dx  \\
 		       & = \int_{0}^{x}1.dx \\
 			   & = x
 	\end{align}
+	\begin{equation}
+	F_U\brak{x}=\begin{cases}
+	 0 & x<0 \\
+	 x & 0\le x \le 1 \\
+	 1 &1<x
+\end{cases}	
+	\end{equation}
+	
 \item
 The mean of $U$ is defined as
 %
@@ -367,6 +375,11 @@ Now compile and excecute
 $ gcc -o 1.3-1.4 1.3-1.4.c
 $ ./1.3-1.4
 \end{lstlisting}
+Experimental values:
+\begin{align}
+\text{Mean} = 0.499772 \label{1.9}\\
+\text{Variance}= 0.083368 \label{1.10}
+\end{align}
 \item Verify your result theoretically given that
 \end{enumerate}
 %
@@ -381,12 +394,7 @@ Var\sbrak{U}&=E\sbrak{U^2}-{E\sbrak{U}}^2=\int_{0}^{1}x^2.dx - 0 \\
 &=\frac{1}{3} -\frac{1}{4} \\
 &=\frac{1}{12}
 \end{align}
-Experimental values:
-\begin{align}
-\text{Mean} = 0.499772\\
-\text{Variance}= 0.083368
-\end{align}
-
+By comparing these values obatined with results (\ref{1.9}) and (\ref{1.10}) we can conclude that simulation varies with theoritical analysis.
 \section{Central Limit Theorem}
 %
 \begin{enumerate}[label=\thesection.\arabic*
@@ -430,6 +438,13 @@ Properties:
 $ wget https://github.com/karna-rash/A11110-Assignment/blob/master/codes/2.2.py
 $ python3 2.2.py
 \end{lstlisting}
+\begin{align}
+Q\brak{x}&=\int_{x}^{\infty} exp\brak{\frac{-x^2}{2}}dx \\
+erf\brak{x}&=\int_{0}^{x}exp\brak{\frac{-x^2}{2}}dx \\
+F_X\brak{x}&=\int_{-\infty}^{x}exp\brak{\frac{-x^2}{2}}dx\\
+F_X\brak{x}&=1-Q\brak{x}\\
+Q\brak{x}&=\frac{1}{2}\brak{1-erf\brak{\frac{x}{\sqrt{2}}}}
+\end{align}
 \begin{figure}
 \centering
 \includegraphics[width=\columnwidth]{./figs/gauss_cdf}
@@ -470,6 +485,11 @@ compile and execute:
 gcc -o gau_mean gau_mean.c -lm
 ./gau_mean
 \end{lstlisting}
+Experimental values
+\begin{align}
+\text{Mean} = -0.000354 \label{2.3}\\
+\text{Variance}=1.001179 \label{2.4}
+\end{align}
 \item Given that 
 \begin{align}
 p_{X}(x) = \frac{1}{\sqrt{2\pi}}\exp\brak{-\frac{x^2}{2}}, -\infty < x < \infty,
@@ -484,15 +504,17 @@ repeat the above exercise theoretically.\\
 &=-\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}d\brak{exp\brak{-\frac{x^2}{2}}} \\
 &=0
 \end{align}
-\item variance
+\item variance:
 \begin{align}
 \e{X^2}&=\int_{-\infty}^{\infty}x^2p_X(x)dx \\
 &=\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi}}x^2exp\brak{-\frac{x^2}{2}}dx \\
+&=\frac{1}{\sqrt{2\pi}}\brak{x\int x exp\brak{-\frac{x^2}{2}}dx}
+\\ &-\frac{1}{\sqrt{2\pi}}\int \int \brak{x exp\brak{-\frac{x^2}{2}}}dx. dx\\
 &=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}exp\brak{-\frac{x^2}{2}}dx \\
 &=\frac{\sqrt{2\pi}}{\sqrt{2\pi}}\\&=1
 \end{align}
 \end{enumerate}
-%
+By comparing these values obatined with results (\ref{2.3}) and (\ref{2.4}) we can conclude that simulation varies with theoritical analysis.
 \end{enumerate}
 \section{From Uniform to Other}
 \begin{enumerate}[label=\thesection.\arabic*
@@ -505,19 +527,18 @@ Generate samples of
 V = -2\ln\brak{1-U}
 \end{equation}
 %
-and plot its CDF.
+and plot its CDF.\\
 \textbf{Solution:}
-Refer the figure \ref{fig:vni_cdf}
+Download the codes \ref{fig:vni_cdf}
 \begin{lstlisting}
-wget https://github.com/karna-rash/A11110-Assignment/blob/master/codes/3.1.c
-
-gcc -o 3.1 3.1.c
-
-./3.1
-
-wget https://github.com/karna-rash/A11110-Assignment/blob/master/codes/3.1.py
-
-python3 3.1.py
+$ wget https://github.com/karna-rash/A11110-Assignment/blob/master/codes/3.1.c
+$ wget https://github.com/karna-rash/A11110-Assignment/blob/master/codes/3.1.py
+\end{lstlisting}
+Compile and execute:
+\begin{lstlisting}
+$gcc -o 3.1 3.1.c
+$./3.1
+$python 3.1.py
 \end{lstlisting}
 \begin{figure}
 \centering
@@ -535,15 +556,15 @@ F_V(x)&=F_U(G^{-1}(x))\\
 \begin{equation}
 F_V(x)=
 \begin{cases}
-G^{-1}(x) & 0 \le 1-e{-\frac{x}{2}} \le 1 \\
-0 &  1-e^{-\frac{x}{2}} \ge 0
+G^{-1}(x) & 0 \le 1-e^{-\frac{x}{2}} \le 1 \\
+0 &  1-e^{-\frac{x}{2}} < 0
 \end{cases}
 \end{equation}
 \begin{equation}
 F_V(x)=
 \begin{cases}
 1-e^{-\frac{x}{2}} & 0 \le x \le \infty \\
-0 &  x \le 0
+0 &  x < 0
 \end{cases}
 \end{equation}
 %

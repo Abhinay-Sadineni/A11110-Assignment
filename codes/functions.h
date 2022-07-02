@@ -63,7 +63,7 @@ double variance(char *fi, double m){
 FILE *fp;
     int N=0;
     double p,sq=0;
-     fp=fopen("uni.dat","r");
+     fp=fopen(fi,"r");
     while(fscanf(fp,"%lf",&p)!=-1){
         sq=sq+(p-m)*(p-m);
         N=N+1;
