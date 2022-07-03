@@ -674,25 +674,32 @@ After Compare the empirical and theorical plots in \ref{fig:tri_cdf_verify} and 
 \label{fig:tri_cdf_verify}
 \end{figure}
 \end{enumerate}
-\section{Maximul Likelihood}
+\section{Maximum Likelihood}
 \begin{enumerate}[label=\thesection.\arabic*
 ,ref=\thesection.\theenumi]
-\item Generate 
-\begin{equation}
-Y = AX+N,
-\end{equation}
-		where   $A = 5 \text{ dB}, X \in \brak{1,-1}$,is Bernoulli and $N \sim \mathcal{N}\brak{0,1}$.\\
-		\textbf{Solution:}
-		Download and execute the code
-		\begin{lstlisting}
+\item Generate equiprobable $X \in \cbrak{1,-1}$.
+\textbf{Solution:}
+	Download and excecute the code
+	\begin{lstlisting}
 $ wget https://github.com/karna-rash/A11110-Assignment/blob/master/codes/5.1.c
 $ wget https://github.com/karna-rash/A11110-Assignment/blob/master/codes/functions.h
 $ gcc 5.1.c -lm 
 $ ./a.out 
 	\end{lstlisting}
-		
-	\item Plot $Y$.
-	
+\item Generate 
+\begin{equation}
+Y = AX+N,
+\end{equation}
+		where $A = 5$ dB,  and $N \sim \mathcal{N}\brak{0,1}$.
+		\textbf{Solution:}
+	Download and excecute the code
+	\begin{lstlisting}
+$ wget https://github.com/karna-rash/A11110-Assignment/blob/master/codes/5.2.c
+$ wget https://github.com/karna-rash/A11110-Assignment/blob/master/codes/functions.h
+$ gcc 5.2.c -lm 
+$ ./a.out 
+	\end{lstlisting}
+	\item Plot $Y$ using a scatter plot.
 	\item Guess how to estimate $X$ from $Y$.
 \item
 \label{ml-ch4_sim}
@@ -705,12 +712,17 @@ and
 	P_{e|1} = \pr{\hat{X} = 1|X=-1}
 \end{equation}
 %
-\item Find $P_e$.
+\item Find $P_e$ assuming that $X$ has equiprobable symbols.
 %
 \item
-Verify by plotting  the theoretical $P_e$.  
+Verify by plotting  the theoretical $P_e$ with respect to $A$ from 0 to 10 dB.  
+%
+\item Now, consider a threshold $\delta$  while estimating $X$ from $Y$. Find the value of $\delta$ that maximizes the theoretical $P_e$.
+\item Repeat the above exercise when 
+	\begin{align}
+		p_{X}(0) = p
+	\end{align}
+\item Repeat the above exercise using the MAP criterion.
 		\end{enumerate}
-
-
 \end{document}
 
