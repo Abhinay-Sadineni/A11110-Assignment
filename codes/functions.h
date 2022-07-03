@@ -15,6 +15,34 @@ fprintf(fp,"%lf\n",-2*log(1-(double)rand()/RAND_MAX));
 fclose(fp);
 }
 
+int bio(){
+    int n=rand()%2 ;
+    if(n==1){
+        return 1;
+    }
+    else{
+        return -1;
+    }
+}
+
+void mix_dis(char*p, int N){
+    int i;
+FILE *fp;
+srand(time(NULL));
+fp = fopen(p,"w");
+for (i = 0; i < N; i++)
+{
+    int n=bio();
+    double temp=0;
+    for(int j=0;j<12;j++){
+        temp+=(double)rand()/RAND_MAX;
+    }
+    temp=temp-6;
+fprintf(fp,"%lf\n",temp+5*n);
+temp=0;
+}
+fclose(fp);
+}
 void gau_dis(char*p ,int N){
 int i;
 FILE *fp;

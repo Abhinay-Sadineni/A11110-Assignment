@@ -543,7 +543,7 @@ $python 3.1.py
 \begin{figure}
 \centering
 \includegraphics[width=\columnwidth]{./figs/vni_cdf}
-\caption{The PDF of $X$}
+\caption{The PDF of $V$}
 \label{fig:vni_cdf}
 \end{figure}
 \item Find a theoretical expression for $F_V(x)$.
@@ -571,6 +571,135 @@ F_V(x)=
 %\item
 %Generate the Rayleigh distribution from Uniform. Verify your result through graphical plots.
 \end{enumerate}
+\section{Triangular Distribution}
+\begin{enumerate}[label=\thesection.\arabic*
+,ref=\thesection.\theenumi]
+%
+\item Generate 
+	\begin{align}
+		T = U_1+U_2
+	\end{align}
+	\textbf{Solution:}
+	Download and excecute the code
+	\begin{lstlisting}
+$ wget https://github.com/karna-rash/A11110-Assignment/blob/master/codes/4.1.c
+$ wget https://github.com/karna-rash/A11110-Assignment/blob/master/codes/functions.h
+$ gcc 4.1.c -lm 
+$ ./a.out 
+	\end{lstlisting}
+\item Find the CDF of $T$.\\
+\textbf{Solution:}
+Download and excecute the code .it gives the following plot Fig.\ref{fig:tri_cdf}
+\begin{lstlisting}
+$ wget https://github.com/karna-rash/A11110-Assignment/blob/master/codes/4.2.py
+$ python 4.2.py
+	\end{lstlisting}
+	\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{./figs/tri_cdf}
+\caption{The CDF of $T$}
+\label{fig:tri_cdf}
+\end{figure}
+\item Find the PDF of $T$.\\
+\textbf{Solution:}
+Download and excecute the code. It gives the following plot Fig.\ref{fig:tri_pdf}
+\begin{lstlisting}
+$ wget https://github.com/karna-rash/A11110-Assignment/blob/master/codes/4.3.py
+$ python 4.3.py
+\end{lstlisting}
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{./figs/tri_pdf}
+\caption{The PDF of $T$}
+\label{fig:tri_pdf}
+\end{figure}
+\textbf{Solution:}
+Download and excecute the code. It gives the following plot Fig.\ref{fig:tri_cdf}
+\item Find the theoretical expressions for the PDF and CDF of $T$.\\
+\textbf{Solution:}
+Let us use convulsion of $p_{U_1}\brak{x} \text{and} p_{U_2}\brak{x}$
+\begin{align}
+p_T\brak{t}=\int_{-\infty}^{\infty}p_{U_1}\brak
+{T-\alpha}p_{U_2}\brak{\alpha} d \alpha
+\end{align}
+\begin{equation}
+p_T\brak{t}=
+\begin{cases}
+\int_{0}^{t} 1.d\alpha & 0 \le t <1 \\
+\int_{t-1}^{1}1.d\alpha & 1\le t \le2 \\
+0 & otherwise
+\end{cases}
+\end{equation}
+\begin{equation}
+ =\begin{cases}
+t & 0 \le t <1 \\
+2-t & 1\le t \le2 \\
+0 & otherwise
+\end{cases}
+\end{equation}
+Now we can get CDF from PDF
+\begin{align}
+F_T\brak{t}&=\pr{T\le t} \\
+&=\int_{-\infty}^{t}p_T\brak{x}dx
+\end{align}
+\begin{equation}
+F_T\brak{t} =\begin{cases}
+0 & t \le 0 \\
+\int_{0}^{t}x.dx & 0 \le t <1 \\
+\int_{1}^{t}2-x.dx + \frac{1}{2}& 1\le t \le2 \\
+1 & 2 \le t
+\end{cases}
+\end{equation}
+\begin{equation}
+=\begin{cases}
+0 & t \le 0 \\
+\frac{x^2}{2} & 0 \le t <1 \\
+\frac{\brak{2-x}^2}{2} & 1\le t \le2 \\
+1 & 2 \le t
+\end{cases}
+\end{equation}
+\item Verify your results through a plot. \\
+\textbf{Solution:}
+After Compare the empirical and theorical plots in \ref{fig:tri_cdf_verify} and \ref{fig:tri_pdf_verify}
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{./figs/tri_pdf_verify}
+\caption{The PDF verify of $T$}
+\label{fig:tri_pdf_verify}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{./figs/tri_cdf_verify}
+\caption{The CDF Verify of $T$}
+\label{fig:tri_cdf_verify}
+\end{figure}
+\end{enumerate}
+\section{Maximul Likelihood}
+\begin{enumerate}[label=\thesection.\arabic*
+,ref=\thesection.\theenumi]
+\item Generate 
+\begin{equation}
+Y = AX+N,
+\end{equation}
+		where   $A = 5 \text{ dB}, X \in \brak{1,-1}$,is Bernoulli and $N \sim \mathcal{N}\brak{0,1}$.
+	\item Plot $Y$.
+	\item Guess how to estimate $X$ from $Y$.
+\item
+\label{ml-ch4_sim}
+Find 
+\begin{equation}
+	P_{e|0} = \pr{\hat{X} = -1|X=1}
+\end{equation}
+and 
+\begin{equation}
+	P_{e|1} = \pr{\hat{X} = 1|X=-1}
+\end{equation}
+%
+\item Find $P_e$.
+%
+\item
+Verify by plotting  the theoretical $P_e$.  
+		\end{enumerate}
 
 
 \end{document}

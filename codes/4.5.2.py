@@ -1,7 +1,21 @@
-;
+import numpy as np
+import matplotlib.pyplot as plt
+import mpmath as mp
+import scipy 
+
+maxrange=50
+maxlim=6.0
+x = np.linspace(-maxlim,maxlim,maxrange)#points on the x axis
+simlen = int(1e6) #number of samples
+err = [] #declaring probability list
+pdf = [] #declaring pdf list
+h = 2*maxlim/(maxrange-1);
+#randvar = np.random.normal(0,1,simlen)
+#randvar = np.loadtxt('uni.dat',dtype='double')
 #randvar = np.random.normal(0,1,simlen)
 #randvar = np.loadtxt('uni.dat',dtype='double')
 randvar = np.loadtxt('tri.dat',dtype='double')
+
 
 for i in range(0,maxrange):
 	err_ind = np.nonzero(randvar < x[i]) #checking probability condition
@@ -35,8 +49,8 @@ plt.legend(["Numerical","Theory"])
 #plt.savefig('../figs/uni_pdf.eps')
 #subprocess.run(shlex.split("termux-open ../figs/uni_pdf.pdf"))
 #if using termux
-plt.savefig('../figs/gauss_pdf_verify.pdf')
-plt.savefig('../figs/gauss_pdf_verify.eps')
+plt.savefig('../figs/tri_pdf_verify.pdf')
+plt.savefig('../figs/tri_pdf_verify.eps')
 plt.show()
 #else
 #plt.show() #opening the plot window
