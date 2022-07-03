@@ -15,6 +15,7 @@ fprintf(fp,"%lf\n",-2*log(1-(double)rand()/RAND_MAX));
 fclose(fp);
 }
 
+
 int bio(){
     int n=rand()%2 ;
     if(n==1){
@@ -24,6 +25,22 @@ int bio(){
         return -1;
     }
 }
+void equi_dis(char*p ,int N){
+int i;
+FILE *fp;
+srand(time(NULL));
+fp = fopen(p,"w");
+//Generate numbers
+int n;
+for (i = 0; i < N; i++)
+{
+    n=bio();
+fprintf(fp,"%d\n",n);
+}
+fclose(fp);
+
+}
+
 
 void mix_dis(char*p, int N){
     int i;
