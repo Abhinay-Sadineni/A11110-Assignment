@@ -589,32 +589,47 @@ $ ./a.out
 	\end{lstlisting}
 \item Find the CDF of $T$.\\
 \textbf{Solution:}
-Download and excecute the code .it gives the following plot Fig.\ref{fig:tri_cdf}
+Download and excecute the code .it gives the following plot Fig.\ref{fig:tri_cdf_verify}
 \begin{lstlisting}
 $ wget https://github.com/karna-rash/A11110-Assignment/blob/master/codes/4.2.py
 $ python 4.2.py
 	\end{lstlisting}
+	\begin{equation}
+F_T\brak{t}=\begin{cases}
+0 & t \le 0 \\
+\frac{t^2}{2} & 0 \le t <1 \\
+\frac{\brak{2-t}^2}{2} & 1\le t \le2 \\
+1 & 2 \le t
+\end{cases}
+\end{equation}
 	\begin{figure}
 \centering
-\includegraphics[width=\columnwidth]{./figs/tri_cdf}
-\caption{The CDF of $T$}
-\label{fig:tri_cdf}
+\includegraphics[width=\columnwidth]{./figs/tri_pdf_verify}
+\caption{The PDF verify of $T$}
+\label{fig:tri_pdf_verify}
 \end{figure}
 \item Find the PDF of $T$.\\
 \textbf{Solution:}
-Download and excecute the code. It gives the following plot Fig.\ref{fig:tri_pdf}
+Download and excecute the code. It gives the following plot Fig.\ref{fig:tri_pdf_verify}
 \begin{lstlisting}
 $ wget https://github.com/karna-rash/A11110-Assignment/blob/master/codes/4.3.py
 $ python 4.3.py
 \end{lstlisting}
+\begin{equation}
+p_T\brak{t} =\begin{cases}
+t & 0 \le t <1 \\
+2-t & 1\le t \le2 \\
+0 & otherwise
+\end{cases}
+\end{equation}
 \begin{figure}
 \centering
-\includegraphics[width=\columnwidth]{./figs/tri_pdf}
-\caption{The PDF of $T$}
-\label{fig:tri_pdf}
+\includegraphics[width=\columnwidth]{./figs/tri_cdf_verify}
+\caption{The CDF Verify of $T$}
+\label{fig:tri_cdf_verify}
 \end{figure}
 \textbf{Solution:}
-Download and excecute the code. It gives the following plot Fig.\ref{fig:tri_cdf}
+Download and excecute the code. It gives the following plot Fig.\ref{fig:tri_cdf_verify}
 \item Find the theoretical expressions for the PDF and CDF of $T$.\\
 \textbf{Solution:}
 Let us use convulsion of $p_{U_1}\brak{x} \text{and} p_{U_2}\brak{x}$
@@ -653,26 +668,14 @@ F_T\brak{t} =\begin{cases}
 \begin{equation}
 =\begin{cases}
 0 & t \le 0 \\
-\frac{x^2}{2} & 0 \le t <1 \\
-\frac{\brak{2-x}^2}{2} & 1\le t \le2 \\
+\frac{t^2}{2} & 0 \le t <1 \\
+\frac{\brak{2-t}^2}{2} & 1\le t \le2 \\
 1 & 2 \le t
 \end{cases}
 \end{equation}
 \item Verify your results through a plot. \\
 \textbf{Solution:}
 After Compare the empirical and theorical plots in \ref{fig:tri_cdf_verify} and \ref{fig:tri_pdf_verify}
-\begin{figure}
-\centering
-\includegraphics[width=\columnwidth]{./figs/tri_pdf_verify}
-\caption{The PDF verify of $T$}
-\label{fig:tri_pdf_verify}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[width=\columnwidth]{./figs/tri_cdf_verify}
-\caption{The CDF Verify of $T$}
-\label{fig:tri_cdf_verify}
-\end{figure}
 \end{enumerate}
 \section{Maximum Likelihood}
 \begin{enumerate}[label=\thesection.\arabic*
@@ -700,6 +703,13 @@ $ gcc 5.2.c -lm
 $ ./a.out 
 	\end{lstlisting}
 	\item Plot $Y$ using a scatter plot.
+	Download and execute the code
+	\begin{lstlisting}
+$ wget https://github.com/karna-rash/A11110-Assignment/blob/master/codes/5.3.py
+$ python 5.3.py
+
+	\end{lstlisting}
+	
 	\item Guess how to estimate $X$ from $Y$.
 \item
 \label{ml-ch4_sim}
@@ -724,5 +734,91 @@ Verify by plotting  the theoretical $P_e$ with respect to $A$ from 0 to 10 dB.
 	\end{align}
 \item Repeat the above exercise using the MAP criterion.
 		\end{enumerate}
+\section{Gaussian to Other}
+\begin{enumerate}[label=\thesection.\arabic*
+,ref=\thesection.\theenumi]
+\item
+Let $X_1 \sim \mathcal{N}\brak{0,1}$ and $X_2 \sim  \mathcal{N}\brak{0,1}$. Plot the CDF and PDF of
+%
+\begin{equation}
+V = X_1^2 + X_2^2
+\end{equation}
+%
+%
+%
+\textbf{Solution:}
+Download and excecute the code
+	\begin{lstlisting}
+$ wget https://github.com/karna-rash/A11110-Assignment/blob/master/codes/5.1.c
+$ wget https://github.com/karna-rash/A11110-Assignment/blob/master/codes/functions.h
+$ gcc 6.1.c -lm 
+$ ./a.out 
+	\end{lstlisting}
+\item
+If
+%
+\begin{equation}
+F_{V}(x) = 
+\begin{cases}
+1 - e^{-\alpha x} & x \geq 0 \\
+0 & x < 0,
+\end{cases}
+\end{equation}
+%
+find $\alpha$.
+%
+\textbf{Solution:}
+Since $X1$ and $X2$ are independent normal distribution: \\
+For $x \ge 0$
+Let $X1=R\cos\brak{\theta}$ and $X2=R\sin\brak{\theta}$ and 
+And the jacobian matrix J:
+\begin{align}
+\vec{J}&=\myvec{\frac{\partial X_1}{\partial R}   & \frac{\partial X_1}{\partial \theta} \\
+\frac{\partial X_2}{\partial R} & \frac{\partial X_2}{\partial \theta}} \\
+&=\myvec{\cos \theta  & -R\sin \theta \\ \sin \theta & R \cos \theta  }
+\end{align}
+Now let us find the 
+\begin{align}
+p_{R,\theta}\brak{r,\theta}&=
+p_{X1,X2}\brak{x1,x2}\abs{J}\\
+&=p_{X1}\brak{x1}p_{X2}\brak{x2}\times r \\
+&=\frac{r}{2\pi}e^{-\frac{x_1^2}{2}}e^{-\frac{x_2^2}{2}} \\
+&=\frac{r}{2\pi}e^{-\frac{r^2}{2}}
+\end{align}
+Remove $\theta$ and get in R:
+\begin{align}
+P_R\brak{r}&=\int_{0}^{2\pi}p_{R,\theta}\brak{r,\theta}.d\theta \\
+&=\int_{0}^{2\pi}\frac{r}{2\pi}e^{-\frac{r^2}{2}}d.\theta \\
+&=2\pi.\frac{r}{2\pi}e^{-\frac{r^2}{2}} \\
+&=re^{-\frac{r^2}{2}}
+\end{align}
+Now transform into Y:
+\begin{align}
+p_{Y}\brak{y}&=p_{R}\brak{r}.\frac{dr}{dy} \\
+&=\sqrt{y}e^{-\frac{y}{2}}.\frac{1}{2\sqrt{y}} \\
+&=\frac{e^{-\frac{y}{2}}}{2}
+\end{align}
+from pdf we can get cdf:\\
+For $0 \le x \le 1$
+\begin{align}
+F_V\brak{x}&=\int_{0}^{x} \frac{e^{-\frac{u}{2}}}{2}du\\
+&= 1-e^{-\frac{x}{2}} \\
+\end{align}
+\begin{equation}
+F_V\brak{x}=\begin{cases}
+1-e^{-\frac{x}{2}} & 0 \le x \le 1 \\
+0  & x < 0  
+\end{cases}
+\end{equation}
+So Thus confirmed that $\alpha = \frac{1}{2}$
+\item
+\label{ch3_raleigh_sim}
+Plot the CDF and PDf of
+%
+\begin{equation}
+A = \sqrt{V}
+\end{equation}
+%
+\end{enumerate}
 \end{document}
 

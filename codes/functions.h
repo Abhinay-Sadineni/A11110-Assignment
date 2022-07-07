@@ -78,6 +78,30 @@ temp=0;
 fclose(fp);
 }
 
+void gau_to_other(char*p ,int N){
+    int i;
+FILE *fp;
+srand(time(NULL));
+fp = fopen(p,"w");
+for (i = 0; i < N; i++)
+{
+    double X1=0;
+    for(int j=0;j<12;j++){
+        X1+=(double)rand()/RAND_MAX;
+    }
+    X1=X1-6;
+double X2=0;
+    for(int j=0;j<12;j++){
+        X2+=(double)rand()/RAND_MAX;
+    }
+    X2=X2-6;
+fprintf(fp,"%lf\n",X1*X1+X2*X2);
+X1=0;
+X2=0;
+}
+fclose(fp);
+}
+
 void uni_dis(char*p ,int N){
 int i;
 FILE *fp;
@@ -106,22 +130,24 @@ double mean(char*fi){
 
 void tri_dis(char*p ,int N){
 	int i;
-FILE *fp;
+    double U1,U2;
+FILE *fp,*fp1,*fp2;
 srand(time(NULL));
 fp = fopen(p,"w");
-for (i = 0; i < N; i++)
-{
-    double temp=0;
-    for(int j=0;j<2;j++){
-        temp+=(double)rand()/RAND_MAX;
-    }
-fprintf(fp,"%lf\n",temp);
-temp=0;
+uni_dis("uni1.dat",N);
+uni_dis("uni2.dat",N);
+fp1=fopen("uni1.dat","r");
+fp2=fopen("uni2.dat","r");
+
+while(fscanf(fp1,"%lf",&U1)!=-1){
+    fscanf(fp2,"%lf",&U2);
+    fprintf(fp,"%lf\n",U1+U2);
 }
 fclose(fp);
-		
-
+fclose(fp1);
+fclose(fp2);		
 }
+
 double variance(char *fi, double m){
 FILE *fp;
     int N=0;
