@@ -23,23 +23,27 @@ for i in range(0,maxrange-1):
 	test = (err[i+1]-err[i])/(x[i+1]-x[i])
 	pdf.append(test) #storing the pdf values in a list
 
-# def other_pdf(x):
-# 	return 
-	
-# vec_gauss_pdf = scipy.vectorize(gauss_pdf)
+def f(x):
+    if x>=0:
+     return x*mp.exp(-x**2/2)
+    else :
+        return 0
 
+PDF=np.vectorize(f,otypes=["double"])
+
+plt.plot(x.T,PDF(x))
 plt.plot(x[0:(maxrange-1)].T,pdf,'o')
 #plt.plot(x,vec_gauss_pdf(x))#plotting the CDF
 plt.grid() #creating the grid
 plt.xlabel('$x_i$')
 plt.ylabel('$p_X(x_i)$')
-#plt.legend(["Numerical","Theory"])
-
+plt.legend(["Theory","Numerical"])
 #if using termux
 #plt.savefig('../figs/uni_pdf.pdf')
 #plt.savefig('../figs/uni_pdf.eps')
 #subprocess.run(shlex.split("termux-open ../figs/uni_pdf.pdf"))
 #if using termux
+
 plt.savefig('../figs/sqrt_pdf.pdf')
 plt.savefig('../figs/sqrt_pdf.eps')
 plt.show()
