@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.5.16)  5 JUL 2022 13:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.5.16)  11 JUL 2022 09:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1253,51 +1253,50 @@ LaTeX Info: Redefining \nameref on input line 121.
 \c@lemma=\count359
 \c@example=\count360
 \c@definition=\count361
-\c@rem=\count362
  (./solutions.toc)
 \tf@toc=\write6
 \openout6 = `solutions.toc'.
 
 LaTeX Font Info:    Trying to load font information for U+txsya on input line 2
-96.
+94.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsya.fd
 File: utxsya.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Trying to load font information for U+txsyb on input line 2
-96.
+94.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyb.fd
 File: utxsyb.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Trying to load font information for U+rsfs on input line 29
-6.
+4.
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 LaTeX Font Info:    Trying to load font information for U+txmia on input line 2
-96.
+94.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxmia.fd
 File: utxmia.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Trying to load font information for U+txsyc on input line 2
-96.
+94.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Trying to load font information for TS1+txr on input line 3
-03.
+01.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/ts1txr.fd
 File: ts1txr.fd 2000/12/15 v3.1
 )
-<./figs/uni_cdf.pdf, id=38, 462.52798pt x 346.89601pt>
+<./figs/uni_cdf.pdf, id=48, 462.52798pt x 346.89601pt>
 File: ./figs/uni_cdf.pdf Graphic file (type pdf)
 <use ./figs/uni_cdf.pdf>
-Package pdftex.def Info: ./figs/uni_cdf.pdf  used on input line 324.
+Package pdftex.def Info: ./figs/uni_cdf.pdf  used on input line 322.
 (pdftex.def)             Requested size: 252.0pt x 189.00429pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1306,44 +1305,44 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
  <./figs/uni_cdf.pdf>]
-<./figs/gauss_cdf.pdf, id=116, 462.52798pt x 346.89601pt>
+<./figs/gauss_cdf.pdf, id=126, 462.52798pt x 346.89601pt>
 File: ./figs/gauss_cdf.pdf Graphic file (type pdf)
 <use ./figs/gauss_cdf.pdf>
-Package pdftex.def Info: ./figs/gauss_cdf.pdf  used on input line 450.
+Package pdftex.def Info: ./figs/gauss_cdf.pdf  used on input line 448.
 (pdftex.def)             Requested size: 252.0pt x 189.00429pt.
  [2 <./figs/gauss_cdf.pdf>]
-<./figs/gauss_pdf.pdf, id=195, 462.52798pt x 346.89601pt>
+<./figs/gauss_pdf.pdf, id=205, 462.52798pt x 346.89601pt>
 File: ./figs/gauss_pdf.pdf Graphic file (type pdf)
 <use ./figs/gauss_pdf.pdf>
-Package pdftex.def Info: ./figs/gauss_pdf.pdf  used on input line 473.
+Package pdftex.def Info: ./figs/gauss_pdf.pdf  used on input line 471.
 (pdftex.def)             Requested size: 252.0pt x 189.00429pt.
 
 Underfull \vbox (badness 5741) has occurred while \output is active []
 
  [3 <./figs/gauss_pdf.pdf>]
-<./figs/vni_cdf.pdf, id=276, 462.52798pt x 346.89601pt>
+<./figs/vni_cdf.pdf, id=286, 462.52798pt x 346.89601pt>
 File: ./figs/vni_cdf.pdf Graphic file (type pdf)
 <use ./figs/vni_cdf.pdf>
-Package pdftex.def Info: ./figs/vni_cdf.pdf  used on input line 545.
+Package pdftex.def Info: ./figs/vni_cdf.pdf  used on input line 543.
 (pdftex.def)             Requested size: 252.0pt x 189.00429pt.
 
-Underfull \hbox (badness 4913) in paragraph at lines 549--552
+Underfull \hbox (badness 4913) in paragraph at lines 547--550
 []\OT1/txr/m/n/12 Find a the-o-ret-i-cal ex-pres-sion for $\OML/txmi/m/it/12 F[
 ]\OT1/txr/m/n/12 (\OML/txmi/m/it/12 x\OT1/txr/m/n/12 )$.
  []
 
-<./figs/tri_pdf_verify.pdf, id=278, 462.52798pt x 346.89601pt>
+<./figs/tri_pdf_verify.pdf, id=288, 462.52798pt x 346.89601pt>
 File: ./figs/tri_pdf_verify.pdf Graphic file (type pdf)
 <use ./figs/tri_pdf_verify.pdf>
-Package pdftex.def Info: ./figs/tri_pdf_verify.pdf  used on input line 607.
+Package pdftex.def Info: ./figs/tri_pdf_verify.pdf  used on input line 605.
 (pdftex.def)             Requested size: 252.0pt x 189.00429pt.
-<./figs/tri_cdf_verify.pdf, id=280, 462.52798pt x 346.89601pt>
+<./figs/tri_cdf_verify.pdf, id=290, 462.52798pt x 346.89601pt>
 File: ./figs/tri_cdf_verify.pdf Graphic file (type pdf)
 <use ./figs/tri_cdf_verify.pdf>
-Package pdftex.def Info: ./figs/tri_cdf_verify.pdf  used on input line 627.
+Package pdftex.def Info: ./figs/tri_cdf_verify.pdf  used on input line 625.
 (pdftex.def)             Requested size: 252.0pt x 189.00429pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 633--636
+Underfull \hbox (badness 10000) in paragraph at lines 631--634
 \OT1/txr/bx/n/12 Solution: \OT1/txr/m/n/12 Let us use con-vul-sion of
  []
 
@@ -1353,19 +1352,48 @@ Underfull \vbox (badness 1789) has occurred while \output is active []
  [4 <./figs/vni_cdf.pdf> <./figs/tri_pdf_verify.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [5 <./figs/tri_cdf_verify.pdf>]
+<./figs/scatter_plot.png, id=389, 462.528pt x 346.896pt>
+File: ./figs/scatter_plot.png Graphic file (type png)
+<use ./figs/scatter_plot.png>
+Package pdftex.def Info: ./figs/scatter_plot.png  used on input line 712.
+(pdftex.def)             Requested size: 252.0pt x 189.00427pt.
+ [5 <./figs/tri_cdf_verify.pdf> <./figs/scatter_plot.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (12.04982pt too wide) detected at line 818
+[]
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [6]
-(./solutions.aux)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7]
+<./figs/sqrt_pdf.pdf, id=558, 462.52798pt x 346.89601pt>
+File: ./figs/sqrt_pdf.pdf Graphic file (type pdf)
+<use ./figs/sqrt_pdf.pdf>
+Package pdftex.def Info: ./figs/sqrt_pdf.pdf  used on input line 932.
+(pdftex.def)             Requested size: 252.0pt x 189.00429pt.
+<./figs/sqrt_cdf.pdf, id=559, 462.52798pt x 346.89601pt>
+File: ./figs/sqrt_cdf.pdf Graphic file (type pdf)
+<use ./figs/sqrt_cdf.pdf>
+Package pdftex.def Info: ./figs/sqrt_cdf.pdf  used on input line 938.
+(pdftex.def)             Requested size: 252.0pt x 189.00429pt.
+
+Underfull \vbox (badness 1199) has occurred while \output is active []
+
+ [8 <./figs/sqrt_pdf.pdf> <./figs/sqrt_cdf.pdf>] (./solutions.aux)
 Package rerunfilecheck Info: File `solutions.out' has not changed.
-(rerunfilecheck)             Checksum: C01F2A4F474199BE9168DBC2B079E4AE;901.
+(rerunfilecheck)             Checksum: 0225859C52D2DC5576BFED5EE4D00751;1178.
  ) 
 Here is how much of TeX's memory you used:
- 29939 strings out of 480204
- 573836 string characters out of 5895010
- 952387 words of memory out of 5000000
- 47137 multiletter control sequences out of 15000+600000
+ 30045 strings out of 480204
+ 575502 string characters out of 5895010
+ 952694 words of memory out of 5000000
+ 47160 multiletter control sequences out of 15000+600000
  533066 words of font info for 153 fonts, out of 8000000 for 9000
  39 hyphenation exceptions out of 8191
  100i,14n,104p,420b,1417s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1379,10 +1407,10 @@ are/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times
 /utmri8a.pfb>
-Output written on solutions.pdf (6 pages, 155504 bytes).
+Output written on solutions.pdf (8 pages, 203174 bytes).
 PDF statistics:
- 572 PDF objects out of 1000 (max. 8388607)
- 383 compressed objects within 4 object streams
- 200 named destinations out of 1000 (max. 500000)
- 91 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 757 PDF objects out of 1000 (max. 8388607)
+ 517 compressed objects within 6 object streams
+ 279 named destinations out of 1000 (max. 500000)
+ 122 words of extra memory for PDF output out of 10000 (max. 10000000)
 

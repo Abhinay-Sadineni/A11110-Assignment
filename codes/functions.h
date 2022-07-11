@@ -16,26 +16,23 @@ fclose(fp);
 }
 
 
-int bio(){
-    int n=rand()%2 ;
-    if(n==1){
-        return 1;
-    }
-    else{
-        return -1;
-    }
-}
+
 void equi_dis(char*p ,int N){
 int i;
 FILE *fp;
 srand(time(NULL));
 fp = fopen(p,"w");
 //Generate numbers
-int n;
+double n;
 for (i = 0; i < N; i++)
 {
-    n=bio();
-fprintf(fp,"%d\n",n);
+if((double)rand()/RAND_MAX < 0.5){
+	n = -1;
+}
+else{
+	n = 1;
+}
+fprintf(fp,"%lf\n",n);
 }
 fclose(fp);
 
@@ -43,23 +40,21 @@ fclose(fp);
 
 
 void mix_dis(char*p, int N){
-    int i;
-FILE *fp;
+FILE *fp,*fp1,*fp2;
 srand(time(NULL));
 fp = fopen(p,"w");
-for (i = 0; i < N; i++)
-{
-    int n=bio();
-    double temp=0;
-    for(int j=0;j<12;j++){
-        temp+=(double)rand()/RAND_MAX;
-    }
-    temp=temp-6;
-fprintf(fp,"%lf\n",temp+5*n);
-temp=0;
+fp1=fopen("equi.dat","r");
+fp2=fopen("gau.dat","r");
+double a,b;
+while(fscanf(fp1,"%lf",&a)!=-1){
+    fscanf(fp2,"%lf",&b);
+    fprintf(fp,"%lf\n",5*a+b);
 }
 fclose(fp);
+fclose(fp1);
+fclose(fp2);
 }
+
 void gau_dis(char*p ,int N){
 int i;
 FILE *fp;

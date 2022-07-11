@@ -159,9 +159,6 @@ columns=fullflexible
 \providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
 \providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
 \providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
-\theoremstyle{remark}
-\newtheorem{rem}{Remark}
-\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
 \providecommand{\abs}[1]{\left\vert#1\right\vert}
 \providecommand{\res}[1]{\Res\displaylimits_{#1}} 
 \providecommand{\norm}[1]{\left\Vert#1\right\Vert}
@@ -181,7 +178,7 @@ columns=fullflexible
 \makeatletter
 \@addtoreset{figure}{section}
 \makeatother
-
+\providecommand{\gauss}[2]{\mathcal{N}\ensuremath{\left(#1,#2\right)}}
 \let\StandardTheFigure\thefigure
 %\renewcommand{\thefigure}{\theproblem.\arabic{figure}}
 \renewcommand{\thefigure}{\thesection}
@@ -233,6 +230,7 @@ columns=fullflexible
 % a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
 % was not built to handle multiple paragraphs
 %
+
 
 \author{ SADINENI ABHINAY - CS21BTECH11055}
 
@@ -680,7 +678,7 @@ After Compare the empirical and theorical plots in \ref{fig:tri_cdf_verify} and 
 \section{Maximum Likelihood}
 \begin{enumerate}[label=\thesection.\arabic*
 ,ref=\thesection.\theenumi]
-\item Generate equiprobable $X \in \cbrak{1,-1}$.
+\item Generate equiprobable $X \in \cbrak{1,-1}$.\\
 \textbf{Solution:}
 	Download and excecute the code
 	\begin{lstlisting}
@@ -693,7 +691,7 @@ $ ./a.out
 \begin{equation}
 Y = AX+N,
 \end{equation}
-		where $A = 5$ dB,  and $N \sim \mathcal{N}\brak{0,1}$.
+		where $A = 5$ dB,  and $N \sim \mathcal{N}\brak{0,1}$. and plot the pdf and cdf\\ 
 		\textbf{Solution:}
 	Download and excecute the code
 	\begin{lstlisting}
@@ -702,15 +700,31 @@ $ wget https://github.com/karna-rash/A11110-Assignment/blob/master/codes/functio
 $ gcc 5.2.c -lm 
 $ ./a.out 
 	\end{lstlisting}
-	\item Plot $Y$ using a scatter plot.
-	Download and execute the code
+	\item Plot $Y$ using a scatter plot.\\
+	\solution
+	Download and execute the code and it gives the Fig.\ref{fig:Scatter Plot of Y}
 	\begin{lstlisting}
 $ wget https://github.com/karna-rash/A11110-Assignment/blob/master/codes/5.3.py
 $ python 5.3.py
-
 	\end{lstlisting}
-	
-	\item Guess how to estimate $X$ from $Y$.
+	\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{./figs/scatter_plot.png}
+\caption{The Scatter plot of $Y$}
+\label{fig:Scatter Plot of Y}
+\end{figure}
+	\item Guess how to estimate $X$ from $Y$.\\
+	\solution
+	From the scatter plot we can say that 
+	\begin{equation}
+	X=\begin{cases}
+	1 & Y >0 \\
+	-1 & Y<0
+	\end{cases}
+	\end{equation}
+	\begin{align}
+	\implies X=sgn\brak{Y}
+	\end{align}
 \item
 \label{ml-ch4_sim}
 Find 
@@ -722,16 +736,103 @@ and
 	P_{e|1} = \pr{\hat{X} = 1|X=-1}
 \end{equation}
 %
-\item Find $P_e$ assuming that $X$ has equiprobable symbols.
-%
+\solution The given expressions are called error functions, for my estimation model Let us calculate the error functions:
+\begin{align}
+P_{e|0} &= \pr{\hat{X} = -1|X=1} \\
+        &= \pr{Y<0 |X=1} \\
+P_{e|1} &= \pr{\hat{X} = -1|X=1} \\
+        &= \pr{Y>0 |X=1}
+\end{align}
+These codes compute the errors in estimation from the data
+\begin{lstlisting}
+$ wget https://github.com/karna-rash/A11110-Assignment/blob/master/codes/5.4.py
+$ python 5.4.py
+	\end{lstlisting}
+Experimental Values:
+\begin{align}
+P_{e|0}&= 0.0\\
+P_{e|1}&= 0.0
+\end{align}
+\item Find $P_e$ assuming that $X$ has equiprobable symbols.\\
+\solution Let us use the total probability theroem :
+First find $P_{e|0}$ and $P_{e|0}$:
+\begin{align}
+P_{e|0}=&\pr{\hat{X} = -1|X=1}\\
+&=\pr{AX+N<0 |X=1} \\
+&=\pr{A+N<0} \\
+&=\pr{N<-A} \\
+&=\pr{N > A} \\
+&=Q_N\brak{A}
+\end{align}
+\begin{align}
+P_{e|1}=&\pr{\hat{X} = 1|X=-1}\\
+&=\pr{AX+N>0 |X=-1} \\
+&=\pr{-A+N>0} \\
+&=\pr{N>A} \\
+&=Q_N\brak{A} 
+\end{align}
+Here small transformation used:
+\begin{align}
+\pr{N<-A}&=\int_{-\infty}^{-A} \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}} \\
+&=\int_{A}^{\infty}  \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}} \\
+&=\pr{N > A}
+\end{align}
+Now let us use Total probaility theorem:
+\begin{align}
+P_{e}&=P_{e|1}\pr{X=0}+P_{e|0}\pr{X=1}\\
+     &= Q_N\brak{A}\times 0.5+Q_N\brak{A}\times 0.5 \\
+     &=Q_N\brak{A}
+\end{align}
 \item
 Verify by plotting  the theoretical $P_e$ with respect to $A$ from 0 to 10 dB.  
 %
-\item Now, consider a threshold $\delta$  while estimating $X$ from $Y$. Find the value of $\delta$ that maximizes the theoretical $P_e$.
+\item Now, consider a threshold $\delta$  while estimating $X$ from $Y$. Find the value of $\delta$ that maximizes the theoretical $P_e$.\\
+\solution:
+Let the thershold be $\delta$ while estmating $X$ from $Y$
+Then the errors will be:
+\begin{align}
+P_{e|0}=&\pr{\hat{X} = -1|X=1}\\
+&=\pr{AX+N<\delta |X=1} \\
+&=\pr{A+N<\delta} \\
+&=\pr{N<\delta-A} \\
+&=1-\pr{N \ge \delta -A}\\
+&=1-Q_N\brak{\delta-A}
+\end{align}
+\begin{align}
+P_{e|1}=&\pr{\hat{X} = 1|X=-1}\\
+&=\pr{AX+N>\delta |X=-1} \\
+&=\pr{-A+N>\delta} \\
+&=\pr{N>\delta+A} \\
+&=Q_N\brak{\delta+A} 
+\end{align}
+\begin{align}
+P_{e}&=P_{e|1}\pr{X=0}+P_{e|0}\pr{X=1}\\
+     &=\frac{1}{2}\brak{1+Q_N\brak{\delta+A}-Q_N\brak{\delta-A}}
+\end{align}
+Let us differntiate and equate to to zero to maximize $P_{e}$
+\begin{align}
+\frac{d\brak{P_{e}}}{d\delta}&=\frac{d}{d\delta}\brak{1+Q_N\brak{\delta+A}-Q_N\brak{\delta-A}}\\
+&= \frac{1}{\sqrt{2\pi}}e^{-\frac{\brak{\delta-A}^2}{2}}-\frac{1}{\sqrt{2\pi}}e^{-\frac{\brak{\delta+A}^2}{2}}\\
+\implies \brak{\delta-A}^2 &=\brak{\delta+A}^2 \\
+\implies \delta &=0
+\end{align}
+hence $\delta=0$ is where $P_e$ is at maximum.
 \item Repeat the above exercise when 
 	\begin{align}
-		p_{X}(0) = p
+		p_{X}(-1) = p
 	\end{align}
+	\solution
+	\begin{align}
+P_{e}&=P_{e|1}\pr{X=1}+P_{e|0}\pr{X=-1}\\
+     &=(p).P_{e|1}+(1-p).P_{e|0}\\
+     &=\brak{p\brak{Q_N\brak{\delta+A}}-(1-p)\brak{Q_N\brak{\delta-A}}}
+\end{align}
+Let us differntiate and equate to to zero to maximize $P_{e}$
+\begin{align}
+ \implies \frac{(1-p)}{\sqrt{2\pi}}e^{-\frac{\brak{\delta-A}^2}{2}}&-\frac{p}{\sqrt{2\pi}}e^{-\frac{\brak{\delta+A}^2}{2}}=0\\
+\implies \brak{\delta-A}^2 &=\brak{\delta+A}^2 \\
+\implies \delta &=\frac{1}{2A}ln\brak{\frac{1-p}{p}}
+\end{align}
 \item Repeat the above exercise using the MAP criterion.
 		\end{enumerate}
 \section{Gaussian to Other}
@@ -749,7 +850,7 @@ V = X_1^2 + X_2^2
 \textbf{Solution:}
 Download and excecute the code
 	\begin{lstlisting}
-$ wget https://github.com/karna-rash/A11110-Assignment/blob/master/codes/5.1.c
+$ wget https://github.com/karna-rash/A11110-Assignment/blob/master/codes/6.1.c
 $ wget https://github.com/karna-rash/A11110-Assignment/blob/master/codes/functions.h
 $ gcc 6.1.c -lm 
 $ ./a.out 
@@ -818,7 +919,115 @@ Plot the CDF and PDf of
 \begin{equation}
 A = \sqrt{V}
 \end{equation}
-%
+\textbf{Solution:}
+The the following codes give pdf and cdf plots of the random variable A. Refer to Fig.\ref{fig:6.3_pdf} and Fig.\ref{fig:6.3_cdf}
+\begin{lstlisting}
+$ wget https://github.com/karna-rash/A11110-Assignment/blob/master/codes/6.3_pdf.py
+$ python 6.3_pdf.py
+$ wget https://github.com/karna-rash/A11110-Assignment/blob/master/codes/6.3_cdf.py
+$ python 6.3_cdf.py
+	\end{lstlisting} 
+	\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{./figs/sqrt_pdf}
+\caption{The PDF verify of $A$}
+\label{fig:6.3_pdf}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{./figs/sqrt_cdf}
+\caption{The CDF verify of $A$}
+\label{fig:6.3_cdf}
+\end{figure}
 \end{enumerate}
+\section{Conditional Probability}
+\begin{enumerate}[label=\thesection.\arabic*
+,ref=\thesection.\theenumi]
+\item
+\label{ch4_sim}
+Plot 
+\begin{equation}
+P_e = \pr{\hat{X} = -1|X=1}
+\end{equation}
+%
+for 
+\begin{equation}
+Y = AX+N,
+\end{equation}
+where $A$ is Raleigh with $E\sbrak{A^2} = \gamma, N \sim \gauss{0}{1}, X \in \brak{-1,1}$ for $0 \le \gamma \le 10$ dB.
+%
+\item
+Assuming that $N$ is a constant, find an expression for $P_e$.  Call this $P_e(N)$
+%
+\item
+%
+\label{ch4_anal}
+For a function $g$,
+\begin{equation}
+E\sbrak{g(X)} = \int_{-\infty}^{\infty}g(x)p_{X}(x)\, dx
+\end{equation}
+%
+Find $P_e = E\sbrak{P_e(N)}$.
+%
+\item
+Plot $P_e$ in problems \ref{ch4_sim} and \ref{ch4_anal} on the same graph w.r.t $\gamma$.  Comment.
+		\end{enumerate}
+\section{Two Dimensions}
+Let 
+\begin{equation}
+\mbf{y} = A\mbf{x} + \mbf{n},
+\end{equation}
+where 
+\begin{align}
+x &\in \brak{\mbf{s}_0,\mbf{s}_1}, 
+\mbf{s}_0 = 
+\begin{pmatrix}
+1 
+\\
+0
+\end{pmatrix},
+\mbf{s}_1 = 
+\begin{pmatrix}
+0 
+\\
+1
+\end{pmatrix}
+\\
+\mbf{n} &= 
+\begin{pmatrix}
+n_1
+\\
+n_2
+\end{pmatrix},
+n_1,n_2 \sim \gauss{0}{1}.
+\end{align}
+%
+\begin{enumerate}[label=\thesection.\arabic*
+,ref=\thesection.\theenumi]
+%%
+\item
+\label{ch5_fsk}
+Plot 
+%
+\begin{equation}
+\mbf{y}|\mbf{s}_0 \text{ and } \mbf{y}|\mbf{s}_1
+\end{equation}
+%
+on the same graph using a scatter plot.
+%
+\item
+For the above problem, find a decision rule for detecting the symbols $\mbf{s}_0 $ and $\mbf{s}_1$.
+%
+\item
+Plot 
+\begin{equation} 
+P_e = \pr{\hat{\mbf{x}} = \mbf{s}_1|\mbf{x} = \mbf{s}_0}
+\end{equation}
+with respect to the SNR from 0 to 10 dB.
+%
+\item
+Obtain an expression for $P_e$. Verify this by comparing the theory and simulation plots on the same graph.
+%
+		\end{enumerate}
 \end{document}
 

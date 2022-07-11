@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 N=1000000
 randvar = np.loadtxt('mix.dat',dtype='double')
 x = range(N)
-plt.plot(x,randvar)
+plt.plot(x,randvar,"o")
 plt.grid() 
 plt.xlabel('Scatter plot')
 plt.ylabel('Y')
